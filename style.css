@@ -15,6 +15,39 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.cursor-circle {
+    background-image: url(./img/n.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-style:groove;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* opacity: 0.8; */
+    z-index: 10000;
+ }
+ 
+ /* კლიკზე ეფექტი */
+ .click-effect {
+    animation: clickExpand 0.3s ease-out;
+ }
+ 
+ @keyframes clickExpand {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+ }
+
 body {
     line-height: 1.6;
     color: var(--text-color);
@@ -27,6 +60,7 @@ position: fixed;
 top: 20px;
 right: 90px;
 z-index: 1001;
+margin-left: 10px;
 }
 
 #langToggle {
@@ -37,6 +71,34 @@ border: none;
 border-radius: 5px;
 cursor: pointer;
 transition: background 0.3s;
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+    .language-toggle {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
+    }
+
+    #langToggle {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    #langToggle {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
 }
 
 /* Navigation */
@@ -121,6 +183,36 @@ nav.scrolled {
     padding: 20px;
 }
 
+
+.header-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+
+}
+
+.profile-photo {
+    margin-left: 40px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+.text-info {
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 header {
     text-align: center;
     padding: 60px 0 40px;
@@ -136,13 +228,13 @@ header {
 h1 {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
+
 }
 
 .title {
     font-size: 1.3rem;
     color: var(--secondary-color);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 500;
 }
 
@@ -285,7 +377,7 @@ h2::after {
 
 .progress-bar {
     height: 8px;
-    background-color: var(--light-bg);
+    background-color: rgb(176, 171, 171);
     border-radius: 4px;
     margin-top: 10px;
     overflow: hidden;
@@ -299,6 +391,7 @@ h2::after {
 
 .progress.georgian { width: 100%; }
 .progress.english { width: 80%; }
+.progress.russian { width: 60%; }
 
 /* Footer */
 footer {
@@ -329,6 +422,23 @@ footer {
     transform: translateY(-5px) scale(1.1);
 }
 
+#back-to-top {
+    display: inline-block;        /* ან block, როგორც მოგწონს */
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s;
+  }
+  
+  #back-to-top:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(62, 68, 177, 0.1);
+  }
+/* 
 .back-to-top {
     display: inline-block;
     margin-top: 20px;
@@ -344,7 +454,7 @@ footer {
     background-color: var(--secondary-color);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+} */
 
 /* Animations */
 @keyframes fadeInUp {
