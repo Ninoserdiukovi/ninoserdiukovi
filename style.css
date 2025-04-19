@@ -54,53 +54,59 @@ body {
     background-color: var(--light-bg);
     padding-top: var(--nav-height);
 }
-
+/* Language Toggle - Mobile Fixes */
 .language-toggle {
-position: fixed;
-top: 20px;
-right: 90px;
-z-index: 1001;
-margin-left: 10px;
+    position: fixed;
+    top: 15px;
+    right: 70px; /* Adjusted to not overlap with hamburger */
+    z-index: 1001;
+    margin-left: 10px;
 }
 
 #langToggle {
-padding: 5px 12px;
-font-weight: bold;
-background-color: #f4f4f4;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background 0.3s;
+    padding: 8px 15px; /* Larger tap target */
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px; /* Larger text */
+    min-width: 50px; /* Ensure consistent size */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Better visibility */
 }
 
-/* Adjust styles for smaller screens */
+#langToggle:active {
+    transform: scale(0.95); /* Feedback when pressed */
+}
+
+/* Adjust for smaller screens */
 @media (max-width: 768px) {
     .language-toggle {
         position: fixed;
         top: 15px;
-        right: 15px;
-        z-index: 1000;
+        right: 60px; /* More space for hamburger */
+        z-index: 1001; /* Above other elements */
     }
 
     #langToggle {
+        padding: 10px 15px; /* Even larger on mobile */
         font-size: 14px;
-        padding: 5px 10px;
     }
 }
 
 /* For very small screens */
 @media (max-width: 480px) {
     .language-toggle {
-        top: 10px;
-        right: 10px;
+        top: 12px;
+        right: 55px;
     }
 
     #langToggle {
-        font-size: 12px;
-        padding: 4px 8px;
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
-
 /* Navigation */
 nav {
     position: fixed;
